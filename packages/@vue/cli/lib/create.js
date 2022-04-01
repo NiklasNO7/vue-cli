@@ -68,6 +68,7 @@ async function create (projectName, options) {
     }
   }
 
+  // 获取prompt相关模块 初始化creator
   const creator = new Creator(name, targetDir, getPromptModules())
   await creator.create(options)
 }

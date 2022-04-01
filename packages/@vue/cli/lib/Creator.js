@@ -87,6 +87,7 @@ module.exports = class Creator extends EventEmitter {
           exit(1)
         }
       } else {
+        // 提示用户选择相应配置，并且输出预设值
         preset = await this.promptAndResolvePreset()
       }
     }
@@ -189,6 +190,7 @@ module.exports = class Creator extends EventEmitter {
     log()
     this.emit('creation', { event: 'plugins-install' })
 
+    // 安装必要依赖
     if (isTestOrDebug && !process.env.VUE_CLI_TEST_DO_INSTALL_PLUGIN) {
       // in development, avoid installation process
       await require('./util/setupDevProject')(context)
@@ -206,6 +208,7 @@ module.exports = class Creator extends EventEmitter {
       afterInvokeCbs,
       afterAnyInvokeCbs
     })
+    // 生成一些项目模板文件 -- 获取模板写入本地
     await generator.generate({
       extractConfigFiles: preset.useConfigFiles
     })

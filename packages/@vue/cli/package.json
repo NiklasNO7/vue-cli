@@ -5,6 +5,9 @@
   "bin": {
     "vue": "bin/vue.js"
   },
+  "scripts": {
+    "test-demo": "./bin/vue.js create demo-test"
+  },
   "types": "types/index.d.ts",
   "repository": {
     "type": "git",
